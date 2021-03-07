@@ -1,0 +1,55 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.container {
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+}
+
+.menu {
+	width: 20%;
+	height: 100%;
+	background-color: aliceblue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button {
+	padding: 20px 30px;
+	font-size: 16px;
+}
+
+.cards-container {
+	height: 100%;
+	width: 80%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	gap: 1rem;
+}
+.card {
+	width: 200px;
+	height: 250px;
+}
+[data='1'] {
+	background-color: blueviolet;
+}
+[data='2'] {
+	background-color: chartreuse;
+}
+[data='3'] {
+	background-color: darkcyan;
+}
+[data='4'] {
+	background-color: darksalmon;
+}
+[data='5'] {
+	background-color: darkturquoise;
+}
+[data='6'] {
+	background-color: deeppink;
+}
