@@ -56,19 +56,24 @@ h2 > span {
 	grid-template-rows: auto;
 	gap: 0.5rem;
 	padding: 3px;
+	perspective: 1000px;
 	/* position: relative;
 	text-align: center;
 	transition: transform 0.8s;
-	transform-style: preserve-3d; */
+	*/
 }
 .card {
 	max-width: 260px;
 	max-height: 220px;
-	/* perspective: 1000px; */
 	position: relative;
 	text-align: center;
-	/* transition: transform 0.8s; */
-	/* transform-style: preserve-3d; */
+	transform-style: preserve-3d;
+	transition: transform 0.5s;
+}
+
+.card:active {
+	transform: scale(0.97);
+	transition: transform 0.2s;
 }
 /* .card:hover {
 	position: absolute;
@@ -77,30 +82,31 @@ h2 > span {
 
 .cards-container .flliped {
 	background-color: silver;
+	transform: scale(1);
 }
 [data='1'] {
 	background-color: blueviolet;
-	/* transform: rotateY(180deg); */
+	transform: rotateY(180deg);
 }
 [data='2'] {
 	background-color: chartreuse;
-	/* transform: rotateY(180deg); */
+	transform: rotateY(180deg);
 }
 [data='3'] {
 	background-color: darkcyan;
-	/* transform: rotateY(180deg); */
+	transform: rotateY(180deg);
 }
 [data='4'] {
 	background-color: darksalmon;
-	/* transform: rotateY(180deg); */
+	transform: rotateY(180deg);
 }
 [data='5'] {
 	background-color: darkturquoise;
-	/* transform: rotateY(180deg); */
+	transform: rotateY(180deg);
 }
 [data='6'] {
 	background-color: deeppink;
-	/* transform: rotateY(180deg); */
+	transform: rotateY(180deg);
 }
 
 @media only screen and (max-width: 880px) {
