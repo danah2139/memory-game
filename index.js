@@ -28,6 +28,7 @@ startGameBtn.addEventListener('click', () => {
 	wrongGuessescounterElement.textContent = `${state.wrongGuessescounter}`;
 	clearInterval(intervalID);
 	intervalID = setInterval(startClock, 1000);
+
 	container.addEventListener('click', pickCard);
 });
 
@@ -63,6 +64,13 @@ const createCard = () => {
 		container.appendChild(card);
 	}
 };
+
+const resetCards = () => {
+	let cards = document.querySelectorAll('.card');
+	cards.forEach((card) => {
+		card.classList.add('flliped');
+	});
+};
 function pickCard(e) {
 	if (state.firstCard === '') {
 		state.firstCard = e.target.getAttribute('data');
@@ -79,6 +87,8 @@ function pickCard(e) {
 			state.cardsCounter -= 2;
 			if (state.cardsCounter === 0) {
 				alert('You Won!');
+				resetCards();
+				startGameBtn.click();
 				return;
 			}
 		} else {
