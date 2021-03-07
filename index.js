@@ -78,7 +78,7 @@ function pickCard(e) {
 		if (state.firstCard === state.secondCard) {
 			state.cardsCounter -= 2;
 			if (state.cardsCounter === 0) {
-				window.prompt('You Win!');
+				alert('You Won!');
 				return;
 			}
 		} else {
