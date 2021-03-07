@@ -2,9 +2,12 @@ const startGameBtn = document.querySelector('button');
 const seconds = document.querySelector('#seconds');
 const minutes = document.querySelector('#minutes');
 const hours = document.querySelector('#hours');
-let countSec = 0;
-let countMin = 0;
-let countHr = 0;
+const intervalState = {
+	countSec: 0,
+	countMin: 0,
+	countHr: 0,
+};
+
 let intervalID;
 const state = {
 	firstCard: '',
@@ -19,24 +22,28 @@ startGameBtn.addEventListener('click', () => {
 	state.secondCard = '';
 	state.cardsCounter = 12;
 	state.wrongGuessescounter = 0;
+	intervalState.countSec = 0;
+	intervalState.countMin = 0;
+	intervalState.countHr = 0;
 	wrongGuessescounterElement.textContent = `${state.wrongGuessescounter}`;
+	clearInterval(intervalID);
 	intervalID = setInterval(startClock, 1000);
 	container.addEventListener('click', pickCard);
 });
 
 function startClock() {
-	countSec++;
-	seconds.textContent = leftFillNum(countSec, 2);
-	if (countSec === 59) {
-		countSec = 0;
-		countMin++;
-		minutes.textContent = leftFillNum(countMin, 2);
+	intervalState.countSec++;
+	seconds.textContent = leftFillNum(intervalState.countSec, 2);
+	if (intervalState.countSec === 59) {
+		intervalState.countSec = 0;
+		intervalState.countMin++;
+		minutes.textContent = leftFillNum(intervalState.countMin, 2);
 	}
-	if (countMin === 60) {
-		countMin = 0;
-		countHr++;
-		minutes.textContent = leftFillNum(countMin, 2);
-		hours.textContent = leftFillNum(countHr, 2);
+	if (intervalState.countMin === 60) {
+		intervalState.countMin = 0;
+		intervalState.countHr++;
+		intervalState.minutes.textContent = leftFillNum(intervalState.countMin, 2);
+		hours.textContent = leftFillNum(intervalState.countHr, 2);
 	}
 }
 
